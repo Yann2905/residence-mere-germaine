@@ -1,0 +1,22 @@
+# Dépendances
+/node_modules
+
+# Photos sources du client (déjà intégrées dans public/images)
+/IMAGES
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+
+# Divers
+.DS_Store
+*.pem
+npm-debug.log*
+.env*
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

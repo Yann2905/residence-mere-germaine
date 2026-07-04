@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* ============================================================
+   CHARTE GRAPHIQUE — Les Résidences Mère Germaine
+   ============================================================
+   Palette extraite du LOGO officiel :
+   - rouge carmin (monogramme MG) → couleur principale « rubis » ;
+   - noir (typographie du logo)   → neutre chaud « charbon » ;
+   - ivoire et doré               → accents premium (uniformes,
+     éclairages chauds de la résidence).
+
+   👉 Pour ajuster une couleur, modifiez les valeurs ci-dessous :
+      toutes les classes (bg-rubis-600, text-or-400…) se mettront
+      à jour automatiquement sur tout le site.
+   ============================================================ */
+
+@theme {
+  /* --- Couleur principale : rouge carmin du logo --- */
+  --color-rubis-50: #fdf3f3;
+  --color-rubis-100: #fbe5e5;
+  --color-rubis-200: #f6caca;
+  --color-rubis-300: #eda3a3;
+  --color-rubis-400: #e06f6f;
+  --color-rubis-500: #cb3a3a;
+  --color-rubis-600: #a31a1a;
+  --color-rubis-700: #891616;
+  --color-rubis-800: #721717;
+  --color-rubis-900: #601717;
+  --color-rubis-950: #350909;
+
+  /* --- Noir charbon (textes, fonds sombres — noir du logo) --- */
+  --color-charbon-50: #f7f6f5;
+  --color-charbon-100: #e9e7e4;
+  --color-charbon-200: #d4d0cb;
+  --color-charbon-300: #b6b0a8;
+  --color-charbon-400: #948d83;
+  --color-charbon-500: #7a7268;
+  --color-charbon-600: #635c52;
+  --color-charbon-700: #4f4941;
+  --color-charbon-800: #3a3630;
+  --color-charbon-900: #2a2723;
+  --color-charbon-950: #161412;
+
+  /* --- Ivoire / crème (fonds clairs) --- */
+  --color-creme: #faf6ef;
+  --color-creme-fonce: #f3ecdf;
+
+  /* --- Doré (accents premium) --- */
+  --color-or-300: #e6cc7a;
+  --color-or-400: #d9b64f;
+  --color-or-500: #c9a227;
+  --color-or-600: #a98420;
+
+  /* --- Vert forêt (touches secondaires) --- */
+  --color-foret-500: #4a7856;
+  --color-foret-600: #3a5f44;
+  --color-foret-700: #2f5233;
+
+  /* --- Typographies (variables injectées par next/font) --- */
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-montserrat), system-ui, sans-serif;
+
+  /* --- Animations personnalisées --- */
+  --animate-defilement: defilement 2s ease-in-out infinite;
+
+  @keyframes defilement {
+    0%, 100% { transform: translateY(0); opacity: 0.9; }
+    50% { transform: translateY(8px); opacity: 0.4; }
+  }
+}
+
+/* ------------------------------------------------------------
+   Styles de base
+   ------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-creme);
+  color: var(--color-charbon-950);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Titres en serif élégant */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+}
+
+/* Sélection de texte aux couleurs de la marque */
+::selection {
+  background-color: var(--color-rubis-600);
+  color: var(--color-creme);
+}
+
+/* Focus visible accessible */
+:focus-visible {
+  outline: 2px solid var(--color-rubis-600);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------
+   Utilitaires maison
+   ------------------------------------------------------------ */
+
+/* Séparateur décoratif doré sous les titres de section */
+.separateur-or {
+  width: 64px;
+  height: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--color-or-500), var(--color-rubis-500));
+}
+
+/* Motif décoratif subtil (points) pour les fonds de section */
+.motif-points {
+  background-image: radial-gradient(var(--color-charbon-200) 1px, transparent 1px);
+  background-size: 24px 24px;
+}

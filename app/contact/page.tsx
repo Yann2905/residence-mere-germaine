@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import BanniereTitre from "@/components/ui/BanniereTitre";
 import AnimationApparition from "@/components/ui/AnimationApparition";
 import Bouton from "@/components/ui/Bouton";
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 const coordonnees = [
   {
     icone: MapPin,
-    titre: "Adresse",
-    contenu: `${infosSite.adresse}, ${infosSite.ville}, ${infosSite.pays}`,
+    titre: "Adresse & accès",
+    contenu: `${infosSite.adresse}, ${infosSite.ville}, ${infosSite.pays} — ${infosSite.acces}`,
     lien: undefined as string | undefined,
   },
   {
@@ -24,6 +24,12 @@ const coordonnees = [
     titre: "Téléphone",
     contenu: infosSite.telephone,
     lien: `tel:${infosSite.telephone.replace(/ /g, "")}`,
+  },
+  {
+    icone: MessageCircle,
+    titre: "WhatsApp",
+    contenu: `+225 ${infosSite.whatsappAffiche}`,
+    lien: lienWhatsApp(messageWhatsAppDefaut),
   },
   {
     icone: Mail,

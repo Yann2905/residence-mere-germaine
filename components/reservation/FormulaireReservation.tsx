@@ -61,7 +61,7 @@ export default function FormulaireReservation() {
       `📅 Arrivée : ${donnees.arrivee}`,
       `📅 Départ : ${donnees.depart}`,
       `👥 Nombre de personnes : ${donnees.personnes}`,
-      `🛏️ Chambre souhaitée : ${chambreChoisie ? `${chambreChoisie.nom} (${formatPrix(chambreChoisie.prix)}/nuit)` : "À définir"}`,
+      `🛏️ Appartement souhaité : ${chambreChoisie ? `${chambreChoisie.nom} — ${chambreChoisie.sousTitre} (dès ${formatPrix(chambreChoisie.prix)}/nuit)` : "À définir"}`,
       donnees.message ? `\n💬 Message : ${donnees.message}` : "",
       ``,
       `Merci de me confirmer la disponibilité.`,
@@ -211,10 +211,10 @@ export default function FormulaireReservation() {
           </select>
         </div>
 
-        {/* Type de chambre */}
+        {/* Type d'appartement */}
         <div>
           <label htmlFor="chambre" className={styleLabel}>
-            Type de chambre <span className="text-rubis-600">*</span>
+            Type d'appartement <span className="text-rubis-600">*</span>
           </label>
           <select
             id="chambre"
@@ -224,11 +224,11 @@ export default function FormulaireReservation() {
             className={styleChamp}
           >
             <option value="" disabled>
-              Choisissez une chambre…
+              Choisissez un appartement…
             </option>
             {chambres.map((chambre) => (
               <option key={chambre.id} value={chambre.id}>
-                {chambre.nom} — {formatPrix(chambre.prix)}/nuit
+                {chambre.nom} — dès {formatPrix(chambre.prix)}/nuit
               </option>
             ))}
           </select>

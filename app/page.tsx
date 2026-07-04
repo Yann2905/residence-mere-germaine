@@ -25,9 +25,9 @@ export default function PageAccueil() {
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <TitreSection
-            surtitre="Nos chambres"
-            titre="Un cocon pour chaque envie"
-            description="De la chambre Standard à la Suite, chaque espace a été pensé pour votre repos et votre bien-être."
+            surtitre="Nos appartements"
+            titre="Séjournez comme chez vous"
+            description="Du studio à l'appartement 3 pièces, nos 7 logements meublés avec balcon incluent l'accès à la piscine Nubela Beach et le service de chambre."
           />
           <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {chambres.map((chambre, index) => (
@@ -41,7 +41,7 @@ export default function PageAccueil() {
               href="/chambres"
               className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-rubis-700 transition-all hover:gap-3 hover:text-rubis-600"
             >
-              Découvrir toutes nos chambres
+              Découvrir tous nos appartements
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </AnimationApparition>

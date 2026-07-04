@@ -6,6 +6,7 @@ import {
   BellRing,
   UtensilsCrossed,
   Waves,
+  Bath,
   Presentation,
   BedDouble,
   ShieldCheck,
@@ -30,6 +31,7 @@ const icones: Record<string, LucideIcon> = {
   reception: BellRing,
   restaurant: UtensilsCrossed,
   piscine: Waves,
+  jacuzzi: Bath,
   "salle-conference": Presentation,
   // Pourquoi nous choisir
   confort: BedDouble,

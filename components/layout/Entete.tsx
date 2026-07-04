@@ -10,7 +10,7 @@ import { infosSite } from "@/config/site";
 
 const liensNavigation = [
   { href: "/", label: "Accueil" },
-  { href: "/chambres", label: "Nos chambres" },
+  { href: "/chambres", label: "Appartements" },
   { href: "/galerie", label: "Galerie" },
   { href: "/contact", label: "Contact" },
 ];

@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Facebook, Instagram, MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import { infosSite } from "@/config/site";
 import { lienWhatsApp, messageWhatsAppDefaut } from "@/lib/utils";
 
 const liensRapides = [
   { href: "/", label: "Accueil" },
-  { href: "/chambres", label: "Nos chambres" },
+  { href: "/chambres", label: "Nos appartements" },
   { href: "/galerie", label: "Galerie" },
   { href: "/reservation", label: "Réservation" },
   { href: "/contact", label: "Contact" },
@@ -101,6 +101,17 @@ export default function PiedDePage() {
               >
                 <Phone className="h-5 w-5 shrink-0 text-or-400" aria-hidden="true" />
                 {infosSite.telephone}
+              </a>
+            </li>
+            <li>
+              <a
+                href={lienWhatsApp(messageWhatsAppDefaut)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 transition-colors hover:text-or-400"
+              >
+                <MessageCircle className="h-5 w-5 shrink-0 text-or-400" aria-hidden="true" />
+                WhatsApp : {infosSite.whatsappAffiche}
               </a>
             </li>
             <li>

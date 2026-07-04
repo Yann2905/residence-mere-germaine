@@ -6,9 +6,9 @@ import BandeauReservation from "@/components/sections/BandeauReservation";
 import { chambres } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Nos chambres et suites",
+  title: "Nos appartements meublés",
   description:
-    "Découvrez nos chambres Standard, Confort et Suites à Daloa : climatisation, Wi-Fi gratuit, télévision et salle de bain privée. Réservez au meilleur prix.",
+    "7 appartements meublés à Daloa : studio, 2 pièces et 3 pièces avec balcon, climatisation, Wi-Fi et accès à la piscine Nubela Beach. Dès 22 500 FCFA la nuit.",
   alternates: { canonical: "/chambres" },
 };
 
@@ -21,8 +21,8 @@ export default function PageChambres() {
     <>
       <BanniereTitre
         surtitre="Hébergement"
-        titre="Nos chambres & suites"
-        description="Trois catégories de chambres pour répondre à toutes vos envies, du séjour d'affaires à l'escapade en famille. Toutes sont climatisées, connectées et impeccablement entretenues."
+        titre="Nos appartements meublés"
+        description="7 appartements en 3 types d'aménagement — studio, 2 pièces et 3 pièces — tous avec balcon, accès à la piscine Nubela Beach et service de chambre. Tarif réduit du lundi au jeudi (Happy Discount) et forfait 3 nuits le week-end."
       />
 
       <section className="py-20 md:py-24">

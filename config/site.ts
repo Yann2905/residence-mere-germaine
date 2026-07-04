@@ -24,17 +24,20 @@ export const infosSite = {
   slogan: "Votre confort et votre tranquillité au cœur de Daloa.",
   devise: "Le choix d'être comme chez vous", // Devise officielle de l'établissement
   description:
-    "Résidence hôtelière haut de gamme à Daloa : chambres climatisées, piscine, restaurant, Wi-Fi gratuit, parking sécurisé et accueil chaleureux. Réservez votre séjour au cœur du Haut-Sassandra, en Côte d'Ivoire.",
+    "Le petit paradis de Daloa : 7 appartements meublés (studio, 2 pièces, 3 pièces), piscine Nubela Beach, restaurant-lounge panoramique Nubela Lounge, jacuzzi privé, Wi-Fi et parking sécurisé. Réservez votre séjour au cœur du Haut-Sassandra.",
 
-  // Coordonnées officielles (page Facebook de l'établissement)
+  // Coordonnées officielles (pages Facebook et TikTok de l'établissement)
   adresse: "Rue de l'Auberge, Tagoura",
+  acces:
+    "Entre Tagoura et Gueya, dernier carrefour avant le corridor de Vavoua, à 200 m du goudron.",
   ville: "Daloa",
   region: "Haut-Sassandra",
   pays: "Côte d'Ivoire",
 
-  telephone: "+225 07 10 61 56 56",
+  telephone: "+225 07 10 61 56 56", // Ligne d'appel principale
   telephoneAffiche: "07 10 61 56 56", // Format affiché sur le site
-  whatsapp: "2250710615656", // Numéro WhatsApp SANS le « + » ni espaces
+  whatsapp: "2250504192000", // WhatsApp officiel : 05 04 19 20 00 (sans « + » ni espaces)
+  whatsappAffiche: "05 04 19 20 00",
   email: "lesresidencesmg@hotmail.com",
 
   // URL publique du site (pour le SEO). À remplacer par le vrai domaine.
@@ -65,11 +68,11 @@ export const infosSite = {
 // 2. SECTION « À PROPOS »
 // ------------------------------------------------------------
 export const aPropos = {
-  titre: "Une hospitalité authentique au cœur du Haut-Sassandra",
+  titre: "Le petit paradis de Daloa",
   histoire:
-    "Nées de l'amour de l'hospitalité et du sens de l'accueil légendaire de la région de Daloa, Les Résidences Mère Germaine offrent à leurs hôtes un havre de paix alliant confort moderne et chaleur africaine. Chaque détail a été pensé pour que vous vous sentiez chez vous, que vous soyez de passage pour affaires ou en séjour prolongé.",
+    "Nichées entre Tagoura et Gueya, Les Résidences Mère Germaine (LRMG) sont un havre de paix alliant confort moderne et chaleur africaine : 7 appartements meublés avec balcon, la piscine Nubela Beach avec ses paillotes, et le Nubela Lounge, notre restaurant panoramique au 4e étage. Que vous soyez de passage pour affaires, en famille ou en séjour prolongé, chaque détail a été pensé pour que vous vous sentiez chez vous.",
   mission:
-    "Offrir à chaque client un séjour paisible, confortable et sécurisé, dans un cadre élégant et accueillant, au meilleur rapport qualité-prix de la région.",
+    "Vous permettre de vous détendre et de vous amuser : un séjour paisible, confortable et sécurisé, dans un cadre élégant, au meilleur rapport qualité-prix de la région.",
   valeurs: [
     { titre: "Hospitalité", texte: "Un accueil chaleureux et personnalisé, fidèle à la tradition ivoirienne." },
     { titre: "Confort", texte: "Des chambres soignées, climatisées et équipées pour votre bien-être." },
@@ -83,20 +86,26 @@ export const aPropos = {
 // 3. STATISTIQUES ANIMÉES
 // ------------------------------------------------------------
 export const statistiques = [
-  { valeur: 20, suffixe: "+", label: "Chambres & suites" },
-  { valeur: 10, suffixe: "+", label: "Années d'expérience" },
+  { valeur: 7, suffixe: "", label: "Appartements meublés" },
+  { valeur: 3, suffixe: "", label: "Types d'aménagement" },
   { valeur: 2000, suffixe: "+", label: "Clients satisfaits" },
-  { valeur: 8, suffixe: "", label: "Services proposés" },
+  { valeur: 9, suffixe: "", label: "Services proposés" },
 ];
 
 // ------------------------------------------------------------
-// 4. LES CHAMBRES
+// 4. LES APPARTEMENTS MEUBLÉS
+//    7 appartements en 3 types d'aménagement, tous avec balcon,
+//    accès à la piscine Nubela Beach et service de chambre.
+//    (Tarifs officiels publiés par l'établissement.)
 // ------------------------------------------------------------
 export type Chambre = {
   id: string;
   nom: string;
+  sousTitre: string;
   description: string;
-  prix: number; // Prix par nuit en FCFA
+  prix: number; // Prix par nuitée du lundi au jeudi (« Happy Discount »), en FCFA
+  prixWeekend: number; // Prix par nuitée le week-end
+  forfait3Nuits: number; // Forfait 3 nuits (vendredi, samedi, dimanche)
   image: string;
   images: string[]; // Photos supplémentaires
   capacite: number; // Nombre de personnes
@@ -106,11 +115,14 @@ export type Chambre = {
 
 export const chambres: Chambre[] = [
   {
-    id: "standard",
-    nom: "Chambre Standard",
+    id: "studio",
+    nom: "Appartement 1 Pièce",
+    sousTitre: "Studio avec balcon",
     description:
-      "Une chambre confortable et lumineuse, idéale pour les voyageurs de passage. Tout le nécessaire pour un séjour agréable à petit prix.",
-    prix: 15000,
+      "Un studio meublé, confortable et lumineux avec balcon privé. Idéal pour une personne seule ou un couple, en court ou long séjour.",
+    prix: 22500,
+    prixWeekend: 30000,
+    forfait3Nuits: 80000,
     image: "/images/chambres/standard-1.jpg",
     images: [
       "/images/chambres/standard-1.jpg",
@@ -118,46 +130,63 @@ export const chambres: Chambre[] = [
       "/images/chambres/salle-de-bain-1.jpg",
     ],
     capacite: 2,
-    equipements: ["Lit double", "Climatisation", "Wi-Fi gratuit", "Télévision", "Salle de bain privée"],
+    equipements: [
+      "Balcon privé",
+      "Climatisation",
+      "Wi-Fi gratuit",
+      "Télévision",
+      "Accès piscine Nubela Beach",
+      "Service de chambre",
+    ],
   },
   {
-    id: "confort",
-    nom: "Chambre Confort",
+    id: "deux-pieces",
+    nom: "Appartement 2 Pièces",
+    sousTitre: "Chambre + salon avec balcon",
     description:
-      "Plus spacieuse et raffinée, la chambre Confort offre un cadre élégant avec un coin salon pour travailler ou vous détendre.",
-    prix: 25000,
+      "Un appartement meublé avec chambre et salon séparés, parfait pour allier travail et détente dans un cadre spacieux et élégant.",
+    prix: 30000,
+    prixWeekend: 35000,
+    forfait3Nuits: 95000,
     image: "/images/chambres/confort-1.jpg",
-    images: ["/images/chambres/confort-1.jpg", "/images/chambres/salle-de-bain-2.jpg"],
-    capacite: 2,
+    images: [
+      "/images/chambres/confort-1.jpg",
+      "/images/chambres/suite-2.jpg",
+      "/images/chambres/salle-de-bain-2.jpg",
+    ],
+    capacite: 3,
     equipements: [
-      "Grand lit",
+      "Salon séparé",
+      "Balcon privé",
       "Climatisation",
       "Wi-Fi gratuit",
       "Télévision écran plat",
-      "Coin salon",
-      "Réfrigérateur",
-      "Salle de bain moderne",
+      "Accès piscine Nubela Beach",
+      "Service de chambre",
     ],
     populaire: true,
   },
   {
-    id: "suite",
-    nom: "Suite",
+    id: "trois-pieces",
+    nom: "Appartement 3 Pièces",
+    sousTitre: "2 chambres + salon avec balcon",
     description:
-      "Notre offre la plus prestigieuse : un espace généreux avec salon séparé, pour un séjour d'exception en famille ou en voyage d'affaires.",
-    prix: 40000,
+      "Notre plus grand appartement : deux chambres et un salon, l'idéal pour les familles ou les groupes qui veulent séjourner comme à la maison.",
+    prix: 45000,
+    prixWeekend: 50000,
+    forfait3Nuits: 150000,
     image: "/images/chambres/suite-1.jpg",
     images: ["/images/chambres/suite-1.jpg", "/images/chambres/suite-2.jpg"],
-    capacite: 4,
+    capacite: 5,
     equipements: [
-      "Lit king size",
-      "Salon séparé",
+      "2 chambres",
+      "Grand salon",
+      "Balcon privé",
       "Climatisation",
-      "Wi-Fi haut débit",
+      "Wi-Fi gratuit",
       "Télévision écran plat",
-      "Réfrigérateur & minibar",
-      "Bureau de travail",
-      "Salle de bain premium",
+      "Accès piscine Nubela Beach",
+      "Service de chambre",
     ],
   },
 ];
@@ -212,18 +241,26 @@ export const services: Service[] = [
   },
   {
     id: "restaurant",
-    nom: "Restaurant & bar",
+    nom: "Nubela Lounge — Restaurant",
     description:
-      "Savourez nos spécialités ivoiriennes et nos cocktails au bord de la piscine : poulet braisé, poisson grillé, alloco…",
+      "Au 4e étage avec vue panoramique sur la nature : spécialités africaines et européennes de notre chef, cocktails et boissons de qualité.",
     icone: "restaurant",
     actif: true,
   },
   {
     id: "piscine",
-    nom: "Piscine & paillotes",
+    nom: "Piscine Nubela Beach",
     description:
-      "Détendez-vous au bord de notre grande piscine, entre transats et paillotes, dans un cadre à la déco africaine unique.",
+      "Grande piscine avec paillotes et maître-nageur. Droit de nage : 5 000 F (adultes et enfants), piscine de nuit à 3 000 F, cours de natation.",
     icone: "piscine",
+    actif: true,
+  },
+  {
+    id: "jacuzzi",
+    nom: "Jacuzzi privé",
+    description:
+      "Offrez-vous un moment de détente absolue dans notre jacuzzi privé, pour couronner votre séjour au petit paradis de Daloa.",
+    icone: "jacuzzi",
     actif: true,
   },
   {

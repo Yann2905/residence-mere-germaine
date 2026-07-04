@@ -20,7 +20,7 @@ export default function DonneesStructurees() {
     email: infosSite.email,
     image: `${infosSite.url}/images/residence/facade-crepuscule.jpg`,
     logo: `${infosSite.url}/images/logo.png`,
-    priceRange: "15000-40000 XOF",
+    priceRange: "22500-150000 XOF",
     currenciesAccepted: "XOF",
     checkinTime: "12:00",
     checkoutTime: "11:00",
@@ -58,6 +58,9 @@ export default function DonneesStructurees() {
       },
     })),
     amenityFeature: [
+      { "@type": "LocationFeatureSpecification", name: "Piscine Nubela Beach", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Restaurant Nubela Lounge", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Jacuzzi privé", value: true },
       { "@type": "LocationFeatureSpecification", name: "Wi-Fi gratuit", value: true },
       { "@type": "LocationFeatureSpecification", name: "Climatisation", value: true },
       { "@type": "LocationFeatureSpecification", name: "Parking sécurisé", value: true },
